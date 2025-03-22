@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: inventory-config
+  namespace: oms
+data:
+  # Inventory warning thresholds
+  LOW_INVENTORY_THRESHOLD: "10"
+  CRITICAL_INVENTORY_THRESHOLD: "5"
+  
+  # Warning messages
+  LOW_INVENTORY_MESSAGE: "Inventory is running low for product(s). Please restock soon."
+  CRITICAL_INVENTORY_MESSAGE: "CRITICAL: Inventory almost depleted for product(s). Immediate restocking required!"
+  
+  # Notification settings
+  ENABLE_EMAIL_NOTIFICATIONS: "true"
+  ENABLE_DASHBOARD_WARNINGS: "true"
+  
+  # Integration settings
+  INVENTORY_CHECK_INTERVAL_SECONDS: "300"  # Check inventory levels every 5 minutes
