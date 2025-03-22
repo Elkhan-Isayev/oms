@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+    <changeSet id="0003_create_inventory_table" author="OMS Developer">
+        <createTable tableName="inventory" schemaName="msinventory">
+            <column name="id" type="BIGSERIAL">
+                <constraints primaryKey="true" nullable="false" />
+            </column>
+            <column name="product_id" type="BIGINT">
+                <constraints nullable="false" foreignKeyName="fk_inventory_product" references="msinventory.products(id)" />
+            </column>
+            <column name="quantity" type="INT">
+                <constraints nullable="false" />
+            </column>
+            <column name="reorder_threshold" type="INT">
+                <constraints nullable="false" />
+            </column>
+            <column name="warehouse_location" type="VARCHAR(100)">
+                <constraints nullable="true" />
+            </column>
+            <column name="last_restock_date" type="TIMESTAMP">
+                <constraints nullable="true" />
+            </column>
+            <column name="created_at" type="TIMESTAMP">
+                <constraints nullable="false" />
+            </column>
+            <column name="updated_at" type="TIMESTAMP">
+                <constraints nullable="false" />
+            </column>
+        </createTable>
+    </changeSet>
+</databaseChangeLog>
